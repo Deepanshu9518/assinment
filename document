@@ -1,0 +1,270 @@
+  1st:  Admin Registration
+
+
+URL: POST /admin/register
+Description: Register a new admin user.
+Request Body:
+
+{
+  "admin_id": "admin@example.com",
+  "password": "your_password_here"
+}
+Response:
+Status: 201 Created
+Body:
+json
+
+{
+  "message": "Admin registered successfully"
+}
+
+
+
+2nd api : Admin Login
+
+
+
+URL: POST /admin/login
+Description: Log in an existing admin user.
+Request Body:
+{
+  "admin_id": "admin@example.com",
+  "password": "your_password_here"
+}
+Response:
+Status: 200 OK
+Body:
+json
+{
+  "token": "your_generated_jwt_token_here"
+}
+
+
+3rd api : User Registration
+
+URL: POST /user/register
+Description: Register a new user.
+Request Body:
+
+{
+  "user_email": "user@example.com",
+  "user_location": "User Location",
+  "user_info": "Additional user information",
+  "password": "your_password_here"
+}
+
+Response:
+Status: 201 Created
+Body: json
+{
+  "message": "User registered successfully"
+}
+4th api : User Login
+
+
+URL: POST /user/login
+Description: Log in an existing user.
+Request Body:
+
+{
+  "user_email": "user@example.com",
+  "password": "your_password_here"
+}
+Response:
+Status: 200 OK
+Body: json
+{
+  "token": "your_generated_jwt_token_here"
+}
+5th api: Dealership Registration
+
+URL: POST /dealership/register
+Description: Register a new dealership.
+Request Body:
+
+{
+  "dealership_email": "dealership@example.com",
+  "dealership_name": "Dealership Name",
+  "dealership_location": "Dealership Location",
+  "dealership_info": "Additional dealership information",
+  "password": "your_password_here"
+}
+Response:
+Status: 201 Created
+Body: json
+{
+  "message": "Dealership registered successfully"
+}
+
+
+6th api: Dealership Login
+
+
+URL: POST /dealership/login
+Description: Log in an existing dealership.
+Request Body:
+{
+  "dealership_email": "dealership@example.com",
+  "password": "your_password_here"
+}
+
+Response:
+Status: 200 OK
+Body: json
+{
+
+  "token": "your_generated_jwt_token_here"
+}
+
+ 
+ for employs all api : User Endpoints (userRoute.js)
+
+
+7th api: View All Cars
+
+URL: GET /user/cars
+Description: Get a list of all available cars.
+Response:
+Status: 200 OK
+Body: Array of car objects.
+
+8th api: View All Cars in a Dealership
+
+URL: GET /user/dealership/cars/:dealership_id
+Description: Get a list of all cars available in a specific dealership.
+Response:
+Status: 200 OK
+Body: Array of car objects.
+
+9th api : View Dealerships with a Certain Car
+
+URL: GET /user/dealerships/:car_id
+Description: Get a list of dealerships that have a certain car.
+Response:
+Status: 200 OK
+Body: Array of dealership objects.
+
+
+10th api:  View All Vehicles Owned by User
+
+URL: GET /user/vehicles
+Description: Get a list of all vehicles owned by the logged-in user.
+Response:
+Status: 200 OK
+Body: Array of vehicle objects.
+
+11th api: View All Deals on a Certain Car
+
+URL: GET /user/deals/:car_id
+Description: Get a list of all deals available for a certain car.
+Response:
+Status: 200 OK
+Body: Array of deal objects.
+
+12th api: View All Deals from a Certain Dealership
+
+URL: GET /user/deals/dealership/:dealership_id
+Description: Get a list of all deals offered by a certain dealership.
+Response:
+Status: 200 OK
+Body: Array of deal objects.
+
+13th api: Buy a Car After a Deal is Made
+
+URL: POST /user/buy/:deal_id
+Description: Allows the user to buy a car after a deal is made.
+Request Params: deal_id - The ID of the deal to buy.
+Response:
+Status: 200 OK
+Body: json
+
+{
+  "message": "Car purchase successful"
+}
+
+
+All deler apis : Dealership Endpoints (dealerRoute.js)
+
+14th api: View All Cars
+
+URL: GET /dealership/cars
+Description: Get a list of all available cars.
+Response:
+Status: 200 OK
+Body: Array of car objects.
+
+15th api : View All Cars Sold by Dealership
+
+URL: GET /dealership/sold-cars
+Description: Get a list of all cars sold by the logged-in dealership.
+Response:
+Status: 200 OK
+Body: Array of sold car objects.
+
+16th api: Add Cars to Dealership
+
+URL: POST /dealership/cars
+Description: Add cars to the logged-in dealership's inventory.
+Request Body: json
+
+{
+  "car_id": "car_id_here"
+}
+Response:
+Status: 201 Created
+Body: json
+
+{
+  "message": "Car added to dealership successfully"
+}
+17th api : view Deals Provided by Dealership
+
+URL: GET /dealership/deals
+Description: Get a list of all deals provided by the logged-in dealership.
+Response:
+Status: 200 OK
+Body: Array of deal objects.
+
+18th api: Add Deals to Dealership
+
+URL: POST /dealership/deals
+Description: Add deals to the logged-in dealership's deals.
+Request Body: json
+{
+  "deal_id": "deal_id_here"
+}
+Response:
+Status: 201 Created
+Body: json
+{
+  "message": "Deal added to dealership successfully"
+}
+19th api : View All Vehicles Dealership has Sold
+
+URL: GET /dealership/sold-vehicles
+Description: Get a list of all vehicles the logged-in dealership has sold.
+Response:
+Status: 200 OK
+Body: Array of sold vehicle objects.
+
+20th api: Add New Vehicle to Sold Vehicles After a Deal is Made
+
+URL: POST /dealership/sold-vehicles
+Description: Add a new vehicle to the list of sold vehicles after a deal is made.
+Request Body: json
+
+{
+  "vehicle_id": "vehicle_id_here",
+  "car_id": "car_id_here",
+  "vehicle_info": "Additional vehicle information"
+
+}
+Response:
+Status: 201 Created
+Body: json
+
+{
+  "message": "Vehicle added to the list of sold vehicles"
+}
+
+A total of 20 api i hva ecallin this project acc to requirment
